@@ -1,0 +1,245 @@
+.container {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.authPage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #f9fafb;
+}
+
+.authContainer {
+  width: 100%;
+  max-width: 480px;
+}
+
+.authCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.logoSection {
+  background: #1f2937;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logoIcon {
+  width: 60px;
+  height: 60px;
+  background: #374151;
+  border: 1px solid #4b5563;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: white;
+}
+
+.logoSection h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+
+.logoSection p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.formSection {
+  padding: 2rem;
+}
+
+.formSection h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+  text-align: center;
+}
+
+.errorMessage {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.inputField {
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #1f2937;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #1f2937;
+  background: white;
+}
+
+.inputField::placeholder {
+  color: #9ca3af;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  background: #fef2f2 !important;
+}
+
+.fieldError {
+  color: #ef4444;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  margin-top: 0.25rem;
+}
+
+.submitButton {
+  background: #1f2937;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-top: 1rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #374151;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.authPrompt {
+  margin-top: 2rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.authPrompt p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.authPrompt a {
+  color: #1f2937;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.authPrompt a:hover {
+  color: #374151;
+  text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .authPage {
+    padding: 1rem;
+  }
+
+  .logoSection {
+    padding: 1.5rem;
+  }
+
+  .logoIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logoSection h1 {
+    font-size: 1.5rem;
+  }
+
+  .formSection {
+    padding: 1.5rem;
+  }
+
+  .formSection h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .authPage {
+    padding: 0.5rem;
+  }
+
+  .logoSection {
+    padding: 1rem;
+  }
+
+  .formSection {
+    padding: 1rem;
+  }
+
+  .authCard {
+    margin: 0 0.5rem;
+  }
+}

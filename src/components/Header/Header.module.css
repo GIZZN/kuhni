@@ -1,0 +1,891 @@
+/* Премиальный Header в стиле главной страницы */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 3rem;
+  min-height: 80px;
+}
+
+/* Секции Header */
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.centerSection {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rightSection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Логотип */
+.logo {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+
+.logoLink:hover {
+  transform: translateY(-2px);
+}
+
+.logoIcon {
+  width: 50px;
+  height: 50px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937;
+  position: relative;
+}
+
+.logoIcon::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d1d5db;
+  z-index: -1;
+}
+
+.logo h1 {
+  color: #1f2937;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+/* Навигация */
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #1f2937;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: #1f2937;
+}
+
+.navLink:hover::before {
+  width: 100%;
+}
+
+/* Поиск */
+.search {
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+}
+
+.search form {
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  padding-right: 5rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  color: #1f2937;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #1f2937;
+  background: #ffffff;
+}
+
+.search input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.searchButton,
+.clearButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.8rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchButton {
+  right: 0.5rem;
+  background: #1f2937;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+
+.searchButton:hover {
+  background: #374151;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.clearButton {
+  right: 3.5rem;
+  color: #9ca3af;
+}
+
+.clearButton:hover {
+  color: #ef4444;
+}
+
+/* Результаты поиска */
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.resultsHeader {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #1f2937;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.searchResultItem:hover {
+  background: #f9fafb;
+  transform: translateX(5px);
+}
+
+.searchResultItem:last-of-type {
+  border-bottom: none;
+}
+
+.resultImage {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 0;
+  overflow: hidden;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.resultImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.resultInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.resultName {
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultCategory {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  background: #f3f4f6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0;
+  display: inline-block;
+}
+
+.resultPrice {
+  color: #1f2937;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  flex-shrink: 0;
+}
+
+.showAllResults {
+  padding: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.showAllResults button {
+  width: 100%;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+  padding: 1rem;
+  border-radius: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showAllResults button:hover {
+  background: #1f2937;
+  border-color: #1f2937;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.noResults {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.noResultsIcon {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.noResultsText {
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.noResultsSubtext {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Действия пользователя */
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.iconButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  padding: 0.3rem 0.8rem;
+  position: relative;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+}
+
+.iconButton:hover {
+  color: #1f2937;
+  background: #ffffff;
+  border-color: #d1d5db;
+  transform: translateY(-3px);
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonLabel {
+  font-size: 0.65rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #1f2937;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0;
+  min-width: 16px;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.iconButton:nth-child(1) .badge {
+  background: #ef4444;
+}
+
+/* Разделитель */
+.divider {
+  width: 1px;
+  height: 30px;
+  background: #e5e7eb;
+  margin: 0 0.5rem;
+}
+
+/* Меню пользователя */
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  padding: 0.4rem 1rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.userButton:hover {
+  color: #1f2937;
+  background: #ffffff;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #f3f4f6;
+  border-radius: 0;
+  color: #1f2937;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.userName {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  width: 48px;
+  height: 48px;
+}
+
+.logoutButton:hover {
+  color: #ef4444;
+  background: #fef2f2;
+  border-color: #fecaca;
+  transform: scale(1.05);
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  padding: 1rem 2rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  background: #1f2937;
+  border: 1px solid #1f2937;
+}
+
+.loginButton:hover {
+  background: #374151;
+  border-color: #374151;
+  transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .container {
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .leftSection {
+    gap: 2rem;
+  }
+
+  .search {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .leftSection {
+    gap: 1.5rem;
+  }
+
+  .centerSection {
+    max-width: 400px;
+  }
+
+  .search input {
+    font-size: 0.9rem;
+  }
+
+  .userActions {
+    gap: 1rem;
+  }
+
+  .iconButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .buttonLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .leftSection,
+  .centerSection,
+  .rightSection {
+    justify-content: center;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  /* Скрываем поиск на мобильных */
+  .centerSection {
+    display: none;
+  }
+
+  /* Скрываем кнопки избранного и корзины на мобильных */
+  .iconButton {
+    display: none;
+  }
+
+  /* Показываем только пользовательскую секцию */
+  .userActions {
+    justify-content: center;
+  }
+
+  /* Скрываем разделитель */
+  .divider {
+    display: none;
+  }
+}
+
+/* Кнопка мобильного меню */
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobileMenuButton:hover {
+  background: #f3f4f6;
+}
+
+/* Показываем кнопку только на мобильных */
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Мобильное меню */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: flex;
+}
+
+.mobileMenuOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.mobileMenuContent {
+  position: relative;
+  background: white;
+  width: 320px;
+  height: 100%;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mobileMenuHeader h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: 'Inter', sans-serif;
+}
+
+.mobileMenuClose {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobileMenuClose:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.mobileMenuBody {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+/* Мобильный поиск */
+.mobileSearch {
+  position: relative;
+}
+
+.mobileSearch form {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.mobileSearchInput {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+}
+
+.mobileSearchInput::placeholder {
+  color: #9ca3af;
+}
+
+.mobileSearchInput:focus {
+  outline: none;
+}
+
+.mobileSearchButton {
+  background: #1f2937;
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  transition: all 0.2s ease;
+}
+
+.mobileSearchButton:hover {
+  background: #374151;
+}
+
+/* Мобильная навигация */
+.mobileNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.mobileNavLink:hover {
+  background: #f3f4f6;
+}
+
+.mobileNavBadge {
+  position: absolute;
+  right: 1rem;
+  background: #ef4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 10px;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Мобильный пользователь */
+.mobileUser {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.mobileUserProfile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: #1f2937;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.mobileUserProfile:hover {
+  background: #f3f4f6;
+}
+
+.mobileAvatar {
+  width: 40px;
+  height: 40px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mobileAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobileUserInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobileUserName {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1f2937;
+  font-family: 'Inter', sans-serif;
+}
+
+.mobileUserEmail {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+}
+
+.mobileLogoutButton,
+.mobileLoginButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #1f2937;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.mobileLogoutButton:hover,
+.mobileLoginButton:hover {
+  background: #374151;
+}
