@@ -92,13 +92,22 @@ export const getSSLConfig = (host: string) => {
     return false;
   }
   
+  // Принудительное включение SSL через переменную окружения
+  if (process.env.POSTGRES_SSL === 'true' || process.env.DB_SSL === 'true') {
+    return {
+      rejectUnauthorized: false, // Для самоподписанных сертификатов
+    };
+  }
+  
   const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host === '::1';
   
   if (isLocalhost) {
     return false;
   }
   
-  // Отключаем SSL для всех хостов (включая удаленные)
-  // Это решает проблему с pg_hba.conf rejects connection
-  return false;
+  // Для удаленных хостов включаем SSL по умолчанию
+  // Это решает проблему с pg_hba.conf rejects connection для удаленных БД
+  return {
+    rejectUnauthorized: false, // Для самоподписанных сертификатов
+  };
 };

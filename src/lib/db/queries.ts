@@ -67,9 +67,10 @@ function handleConnectionError(error: unknown) {
     case '28000':
       dbLogger.error('PostgreSQL SSL/Authentication Error: Проблема с SSL или pg_hba.conf');
       dbLogger.info('Для удаленной БД убедитесь что:');
-      dbLogger.info('1. SSL включен (попробуйте добавить POSTGRES_SSL=true в .env)');
-      dbLogger.info('2. pg_hba.conf разрешает подключения с вашего IP');
-      dbLogger.info('3. База данных поддерживает SSL соединения');
+      dbLogger.info('1. SSL включен автоматически для удаленных хостов');
+      dbLogger.info('2. Если нужно принудительно включить SSL: POSTGRES_SSL=true в .env');
+      dbLogger.info('3. Если нужно отключить SSL: POSTGRES_SSL=false в .env');
+      dbLogger.info('4. pg_hba.conf разрешает подключения с вашего IP');
       dbLogger.debug(`Хост: ${dbConfig.host}, Порт: ${dbConfig.port}`);
       break;
       
